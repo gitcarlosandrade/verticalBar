@@ -1,8 +1,10 @@
 package ca.com.br.verticalbar
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
+import android.os.Build
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
@@ -110,6 +112,9 @@ class VerticalBarView : LinearLayout {
     private fun setupEstimatedBar(barSize : Int, color : Int) {
         estimatedBar.layoutParams.height = barSize
         estimatedBarDrawable?.setStroke(barStrokeWidth, color)
+        estimatedBarDrawable?.setColor(Color.TRANSPARENT)
+
+
     }
 
     private fun getBarSize(maxValue: Double, value: Double, parentHeight: Int) : Int {
@@ -196,12 +201,6 @@ class VerticalBarView : LinearLayout {
 
     private fun getOverBarDrawable() = ContextCompat.getDrawable(context,
             R.drawable.over_vertical_bar_fill_drawable).mutate() as LayerDrawable
-
-    fun linearScale(domain: Pair<Double, Double>, range: Pair<Double, Double>): (Double) -> Double {
-        return { value ->
-            range.first + (range.second - range.first) * ((value - domain.first) / (domain.second - domain.first))
-        }
-    }
 
     private fun setupBackgrounds() {
         estimatedBarLayer?.setDrawableByLayerId(R.id.stroke, estimatedBarDrawable)
