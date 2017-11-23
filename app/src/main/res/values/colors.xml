@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="positive_green">#1ccb5f</color>
+    <color name="positive_blue">#11b2d5</color>
+    <color name="positive_gray">#858585</color>
+    <color name="negative_red">#d93849</color>
+    <color name="blue">#3958cb</color>
+    <color name="green">#1bb16e</color>
+    <color name="dkgreen">#1f8c5a</color>
+    <color name="orange">#fc6148</color>
+    <color name="purple">#885bd1</color>
+
+</resources>

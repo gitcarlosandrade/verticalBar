@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center|bottom"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+
+    <TextView
+        android:id="@+id/estimatedValueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#a5000000"
+        android:lineSpacingExtra="4sp"
+        android:gravity="center_horizontal|bottom"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/estimatedBar"
+        android:orientation="vertical"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="bottom"
+        >
+
+        <View
+            android:id="@+id/overBar"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            tools:layout_height="100dp"
+            tools:background="@drawable/over_vertical_bar_fill_drawable"
+            />
+
+
+        <View
+            android:id="@+id/planningReferenceBar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"
+            />
+
+
+        <View
+            android:id="@+id/actualBar"
+            android:layout_width="40dp"
+            tools:layout_height="100dp"
+            android:layout_height="0dp"
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/white"
+        />
+
+
+    <TextView
+        android:id="@+id/actualValueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="4sp"
+        android:textSize="12sp"
+        />
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageReference"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@android:drawable/ic_delete"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.com.br.verticalbar.MainActivity"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/barContainer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="horizontal"
+        android:background="@color/positive_gray"
+        android:gravity="bottom">
+
+        <ca.com.br.verticalbar.VerticalBarView
+            android:id="@+id/verticalBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ca.com.br.verticalbar.VerticalBarView
+            android:id="@+id/verticalBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ca.com.br.verticalbar.VerticalBarView
+            android:id="@+id/verticalBar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ca.com.br.verticalbar.VerticalBarView
+            android:id="@+id/verticalBar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
