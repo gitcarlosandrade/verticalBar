@@ -48,8 +48,8 @@
         <View
             android:id="@+id/planningReferenceBar"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#ffffff"
+            android:layout_height="1dp"
+            android:background="#efefef"
             />
 
 
@@ -64,8 +64,9 @@
 
 
     <View
+        android:id="@+id/bottomLine"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:background="@android:color/white"
         />
 

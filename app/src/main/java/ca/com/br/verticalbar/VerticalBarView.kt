@@ -17,7 +17,7 @@ class VerticalBarView : LinearLayout {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     private val barStrokeWidth = 1.dpToPx(context)
-    private val barCornerRadius = 8f
+    private val barCornerRadius = 4f
 
     private var estimatedBarLayer: LayerDrawable? = null
     private var actualBarLayer: LayerDrawable? = null
@@ -43,7 +43,9 @@ class VerticalBarView : LinearLayout {
         setLabels(icon, estimatedValue, value)
 
         val currentBarValue = Math.max(value, estimatedValue)
-        val barSize = getBarSize(maxValue = maxValue, value = currentBarValue, parentHeight = parentHeight)
+        val barSize = getBarSize(maxValue = maxValue,
+                value = currentBarValue,
+                parentHeight = parentHeight)
         val overValue = if (estimatedValue == 0.0) 0.0 else Math.max(value - estimatedValue, 0.0)
 
         setupEstimatedBar(barSize = barSize, color = color)
@@ -51,8 +53,11 @@ class VerticalBarView : LinearLayout {
                 currentBarValue = currentBarValue,
                 barSize = barSize,
                 color = color)
+        setupOverBar(overValue = overValue,
+                currentBarValue = currentBarValue,
+                barSize = barSize,
+                overColor = overColor)
 
-        setupOverBar(overValue, currentBarValue, barSize, overColor)
         setupBackgrounds()
 
         redraw()
@@ -114,6 +119,7 @@ class VerticalBarView : LinearLayout {
         val estimatedValueLabelHeight = getEstimatedValueLabelHeight()
         val actualValueLabelHeight = getActualValueLabelHeight()
         val imageReferenceHeight = getImageReferenceHeight()
+        val bottomLineHeight = getBottomLineHeight()
 
         val estimatedBarLP = estimatedBar.layoutParams as LinearLayout.LayoutParams
         val actualValueLP = actualValueLabel.layoutParams as LinearLayout.LayoutParams
@@ -128,9 +134,15 @@ class VerticalBarView : LinearLayout {
                 actualValueLP.topMargin -
                 container.paddingTop -
                 container.paddingBottom -
-                3.dpToPx(context))
+                bottomLineHeight)
 
         return getHeightForValue(value = currentValue, maxValue = max, height = availableHeight)
+    }
+
+
+    private fun getBottomLineHeight(): Int {
+        bottomLine.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
+        return bottomLine.measuredHeight
     }
 
 

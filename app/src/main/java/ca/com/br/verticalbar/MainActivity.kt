@@ -48,5 +48,43 @@ class MainActivity : AppCompatActivity() {
                 overColor = Color.RED,
                 icon = R.drawable.ic_add_green_10dp,
                 parentHeight = barContainer.layoutParams.height)
+
+
+
+        verticalBar5.bind(
+                value = 2000.00,
+                maxValue = maxValue,
+                estimatedValue = maxValue,
+                color = ContextCompat.getColor(this, R.color.blue),
+                overColor = Color.BLUE,
+                icon = R.drawable.ic_add_green_10dp,
+                parentHeight = barContainer.layoutParams.height)
+
+        verticalBar6.bind(
+                value = 1200.0,
+                maxValue = maxValue,
+                estimatedValue = 1000.0,
+                color = ContextCompat.getColor(this, R.color.green),
+                overColor = ContextCompat.getColor(this, R.color.dkgreen),
+                icon = R.drawable.ic_add_green_10dp,
+                parentHeight = barContainer.layoutParams.height)
+
+        verticalBar7.bind(
+                value = 600.0,
+                maxValue = maxValue,
+                estimatedValue = 700.0,
+                color = ContextCompat.getColor(this, R.color.orange),
+                overColor = Color.RED,
+                icon = R.drawable.ic_add_green_10dp,
+                parentHeight = barContainer.layoutParams.height)
+
+        verticalBar8.bind(
+                value = 500.0,
+                maxValue = maxValue,
+                estimatedValue = 0.0,
+                color = ContextCompat.getColor(this, R.color.purple),
+                overColor = Color.RED,
+                icon = R.drawable.ic_add_green_10dp,
+                parentHeight = barContainer.layoutParams.height)
     }
 }
