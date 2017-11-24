@@ -19,7 +19,7 @@ class VerticalBarGraph : LinearLayout{
     fun bind(graphModel: List<GraphModel>) {
 
         if (graphModel.isEmpty()) {
-            IllegalStateException("")
+            IllegalStateException("GraphModel list cannot be empty. ")
         }
 
         val barModel = graphModel.maxBy { Math.max(it.value, it.estimatedValue) }
