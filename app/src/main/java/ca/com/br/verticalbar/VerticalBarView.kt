@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
+import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
@@ -148,6 +149,8 @@ class VerticalBarView : LinearLayout {
             ((value * height) / maxValue).toInt()
 
     private fun setLabels(icon: Int, estimatedValue: Double, value: Double) {
+
+        imageReference.setImageResource(icon)
 
         actualValueLabel.text = value.toString()
 
