@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.vertical_bar_view.view.*
 
+
 class VerticalBarView : LinearLayout {
 
     constructor(context: Context?) : super(context)
@@ -113,8 +114,6 @@ class VerticalBarView : LinearLayout {
         estimatedBar.layoutParams.height = barSize
         estimatedBarDrawable?.setStroke(barStrokeWidth, color)
         estimatedBarDrawable?.setColor(Color.TRANSPARENT)
-
-
     }
 
     private fun getBarSize(maxValue: Double, value: Double, parentHeight: Int) : Int {
@@ -145,27 +144,6 @@ class VerticalBarView : LinearLayout {
     }
 
 
-    private fun getBottomLineHeight(): Int {
-        bottomLine.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-        return bottomLine.measuredHeight
-    }
-
-
-    private fun getImageReferenceHeight() : Int {
-        imageReference.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-        return imageReference.measuredHeight
-    }
-
-    private fun getActualValueLabelHeight() : Int {
-        actualValueLabel.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-        return actualValueLabel.measuredHeight
-    }
-
-    private fun getEstimatedValueLabelHeight(): Int {
-        estimatedValueLabel.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-        return estimatedValueLabel.measuredHeight
-    }
-
     private fun getHeightForValue(value: Double, maxValue: Double, height: Int): Int =
             ((value * height) / maxValue).toInt()
 
@@ -192,6 +170,25 @@ class VerticalBarView : LinearLayout {
         overBarSolid = overBarLayer?.findDrawableByLayerId(R.id.solidRect) as GradientDrawable
     }
 
+    private fun getBottomLineHeight(): Int {
+        bottomLine.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
+        return bottomLine.measuredHeight
+    }
+
+    private fun getImageReferenceHeight() : Int {
+        imageReference.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
+        return imageReference.measuredHeight
+    }
+
+    private fun getActualValueLabelHeight() : Int {
+        actualValueLabel.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
+        return actualValueLabel.measuredHeight
+    }
+
+    private fun getEstimatedValueLabelHeight(): Int {
+        estimatedValueLabel.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
+        return estimatedValueLabel.measuredHeight
+    }
 
     private fun getActualBarDrawable() = ContextCompat.getDrawable(context,
             R.drawable.vertical_bar_fill_drawable).mutate() as LayerDrawable

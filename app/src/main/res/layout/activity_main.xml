@@ -7,67 +7,9 @@
     android:layout_height="match_parent"
     tools:context="ca.com.br.verticalbar.MainActivity">
 
-    <HorizontalScrollView
+    <ca.com.br.verticalbar.VerticalBarGraph
+        android:id="@+id/verticalBarGraph"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <LinearLayout
-            android:id="@+id/barContainer"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:orientation="horizontal"
-            android:gravity="bottom">
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <ca.com.br.verticalbar.VerticalBarView
-                android:id="@+id/verticalBar8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </HorizontalScrollView>
+        android:layout_height="400dp"/>
 
 </LinearLayout>
