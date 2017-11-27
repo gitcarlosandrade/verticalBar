@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 estimatedValue = 2500.00,
                 color = ContextCompat.getColor(this, R.color.blue),
                 overColor = Color.BLUE,
-                icon = R.drawable.ic_launcher_background)
+                description = "Moradia")
 
         val graphModel2 = GraphModel(
                 value = 1200.0,
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                 estimatedValue = 700.0,
                 color = ContextCompat.getColor(this, R.color.orange),
                 overColor = Color.RED,
-                icon = R.drawable.ic_launcher_background)
+                description = "Compras")
 
         val graphModel4 = GraphModel(
                 value = 500.0,

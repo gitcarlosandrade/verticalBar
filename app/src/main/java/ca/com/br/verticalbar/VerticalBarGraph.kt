@@ -41,6 +41,7 @@ class VerticalBarGraph : LinearLayout{
                         color = model.color,
                         overColor = model.overColor,
                         icon = model.icon,
+                        description = model.description,
                         parentHeight = parentHeight)
 
                 hsvChild.addView(verticalBarView)

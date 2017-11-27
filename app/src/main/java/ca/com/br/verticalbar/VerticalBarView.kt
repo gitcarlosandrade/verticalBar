@@ -4,13 +4,12 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
-import android.os.Build
-import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import kotlinx.android.synthetic.main.vertical_bar_view.view.*
 
 
@@ -42,15 +41,20 @@ class VerticalBarView : LinearLayout {
              estimatedValue: Double,
              color: Int,
              overColor: Int,
-             icon: Int, parentHeight: Int) {
+             description: String,
+             icon: Int,
+             parentHeight: Int) {
 
-        setLabels(icon, estimatedValue, value)
+        setLabels(icon = icon,
+                description = description,
+                estimatedValue = estimatedValue,
+                value = value)
 
-        val currentBarValue = Math.max(value, estimatedValue)
+        val currentBarValue = value.coerceAtLeast(estimatedValue)
         val barSize = getBarSize(maxValue = maxValue,
                 value = currentBarValue,
                 parentHeight = parentHeight)
-        val overValue = if (estimatedValue == 0.0) 0.0 else Math.max(value - estimatedValue, 0.0)
+        val overValue = if (estimatedValue == 0.0) 0.0 else value - estimatedValue.coerceAtLeast(0.0)
 
         setupEstimatedBar(barSize = barSize, color = color)
         setupActualValueBar(value = value - overValue,
@@ -128,9 +132,9 @@ class VerticalBarView : LinearLayout {
 
         val estimatedBarLP = estimatedBar.layoutParams as LinearLayout.LayoutParams
         val actualValueLP = actualValueLabel.layoutParams as LinearLayout.LayoutParams
-        val imageReferenceLP = imageReference.layoutParams as LinearLayout.LayoutParams
+        val imageReferenceLP = imageReference.layoutParams as RelativeLayout.LayoutParams
 
-        val availableHeight = (parentHeight -
+        val availableHeight = parentHeight -
                 estimatedValueLabelHeight -
                 actualValueLabelHeight -
                 imageReferenceHeight -
@@ -139,7 +143,7 @@ class VerticalBarView : LinearLayout {
                 actualValueLP.topMargin -
                 container.paddingTop -
                 container.paddingBottom -
-                bottomLineHeight)
+                bottomLineHeight
 
         return getHeightForValue(value = currentValue, maxValue = max, height = availableHeight)
     }
@@ -148,10 +152,10 @@ class VerticalBarView : LinearLayout {
     private fun getHeightForValue(value: Double, maxValue: Double, height: Int): Int =
             ((value * height) / maxValue).toInt()
 
-    private fun setLabels(icon: Int, estimatedValue: Double, value: Double) {
+    private fun setLabels(icon: Int, estimatedValue: Double, value: Double, description: String) {
 
         imageReference.setImageResource(icon)
-
+        txtDescription.text = description
         actualValueLabel.text = value.toString()
 
         if (estimatedValue > 0) {
