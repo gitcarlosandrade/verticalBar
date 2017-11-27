@@ -36,39 +36,34 @@ class VerticalBarView : LinearLayout {
         initDrawables()
     }
 
-    fun bind(value: Double,
-             maxValue: Double,
-             estimatedValue: Double,
-             color: Int,
-             overColor: Int,
-             description: String,
-             icon: Int,
-             parentHeight: Int) {
+    fun bind(model: GraphModel, maxValue: Double, parentHeight: Int) {
 
-        setLabels(icon = icon,
-                description = description,
-                estimatedValue = estimatedValue,
-                value = value)
+        setLabels(icon = model.icon,
+                description = model.description,
+                estimatedValue = model.estimatedValue,
+                value = model.value)
 
-        val currentBarValue = value.coerceAtLeast(estimatedValue)
+        val currentBarValue = model.value.coerceAtLeast(model.estimatedValue)
         val barSize = getBarSize(maxValue = maxValue,
                 value = currentBarValue,
                 parentHeight = parentHeight)
-        val overValue = if (estimatedValue == 0.0) 0.0 else value - estimatedValue.coerceAtLeast(0.0)
+        val overValue = if (model.estimatedValue == 0.0) 0.0 else model.value - model.estimatedValue.coerceAtLeast(0.0)
 
-        setupEstimatedBar(barSize = barSize, color = color)
-        setupActualValueBar(value = value - overValue,
+        setupEstimatedBar(barSize = barSize, color = model.color)
+        setupActualValueBar(value = model.value - overValue,
                 currentBarValue = currentBarValue,
                 barSize = barSize,
-                color = color)
+                color = model.color)
         setupOverBar(overValue = overValue,
                 currentBarValue = currentBarValue,
                 barSize = barSize,
-                overColor = overColor)
+                overColor = model.overColor)
 
         setupBackgrounds()
 
         redraw()
+
+        estimatedBar.setOnClickListener { model.listener.invoke(model) }
     }
 
     private fun setupOverBar(overValue: Double, currentBarValue: Double, barSize: Int, overColor : Int) {

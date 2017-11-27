@@ -28,21 +28,14 @@ class VerticalBarGraph : LinearLayout{
 
             val max = Math.max(it.value, it.estimatedValue)
 
-            graphModel.map { model ->
+            graphModel.map {
 
                 val verticalBarView = VerticalBarView(context)
 
                 val parent = containerHsvGraph.parent as LinearLayout
                 val parentHeight = parent.layoutParams.height
 
-                verticalBarView.bind(value = model.value,
-                        maxValue = max,
-                        estimatedValue = model.estimatedValue,
-                        color = model.color,
-                        overColor = model.overColor,
-                        icon = model.icon,
-                        description = model.description,
-                        parentHeight = parentHeight)
+                verticalBarView.bind(model = it, maxValue = max, parentHeight = parentHeight)
 
                 hsvChild.addView(verticalBarView)
             }

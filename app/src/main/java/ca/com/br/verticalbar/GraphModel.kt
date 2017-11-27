@@ -5,4 +5,5 @@ data class GraphModel(val value: Double,
                       val color: Int,
                       val overColor: Int,
                       val icon: Int = 0,
-                      val description: String = "")
+                      val description: String = "",
+                      val listener: (GraphModel) -> Unit = {})

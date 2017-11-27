@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity() {
                 estimatedValue = 2500.00,
                 color = ContextCompat.getColor(this, R.color.blue),
                 overColor = Color.BLUE,
-                description = "Moradia")
+                description = "Moradia",
+                listener = {Toast.makeText(MainActivity@this, "Valor clicado ${it.value}", Toast.LENGTH_LONG).show()})
 
         val graphModel2 = GraphModel(
                 value = 1200.0,
